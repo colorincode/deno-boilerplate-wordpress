@@ -17,7 +17,11 @@ import { encoder } from 'https://deno.land/std@0.65.0/encoding/utf8.ts';
 import { startDinoAnimation } from "./utils/dino.ts";
 import { runBenches } from './utils/performance-test.ts';
 import { transformHTML } from "./transformHTML.ts";
+import { transformPHP } from "./transformPHP_WP.ts";
+import { transformSCSS_WP } from "./transformSCSS_WP.ts";
 import { timings, BuildTimings } from './utils/timingTracker.ts';
+
+let wordpress = true;
 
 // const { stopAnimation, updateStatus } = startDinoAnimation(false);
 let currentWatcher: Deno.FsWatcher | null = null;
@@ -110,6 +114,15 @@ async function build(changedFiles: Set<string> | null = null) {
 
     if (!changed || changed.some(p => p.endsWith(".scss") || p.endsWith(".sass") || p.endsWith(".css"))) {
       tasks.push(transformSCSS(changedFiles));
+      if (wordpress) {
+        tasks.push(transformSCSS_WP());
+      }
+    }
+
+    if (wordpress) {
+      if (!changed || changed.some(p => p.endsWith(".php"))) {
+        tasks.push(transformPHP());
+      }
     }
 
     if (!changed || changed.some(p => /\.(png|jpe?g|svg|gif|webp|mp4|woff2?|ttf|ico|json|txt)$/.test(p))) {
