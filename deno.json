@@ -1,0 +1,153 @@
+{
+  "version": "0.0.1",
+  "description": "Wordpress x fresh islands boilerplate library for deno from Color in Code: Kay's Version \\<3",
+  "author": "Color in Code <(colorincodeme@gmail.com)>",
+  "homepage": "https://colorincode.me",
+  "tasks": {
+    "patch-fontawesome":"deno run --allow-all ./utils/patch-fontawesome-sass.ts",
+    "clean": "deno run --allow-all clear.ts",
+    "dev": "deno run --allow-all --watch dev.ts",
+    "prod": "deno run --allow-all prod.ts",
+    "predev": "vite",
+    "check": "deno fmt --check . && deno lint . && deno check",
+    "build": "vite build",
+    "start": "deno serve -A _fresh/server.js",
+    "update": "deno run -A -r jsr:@fresh/update ."
+},
+"nodeModulesDir": "auto",
+  "imports": {
+    "@/": "./",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.7",
+    "@preact/signals": "npm:@preact/signals@^2.3.2",
+    "@splidejs/splide": "npm:@splidejs/splide@^4.1.4",
+    "autoprefixer": "npm:autoprefixer@^10.4.21",
+    "browserslist": "npm:browserslist@4.24.5",
+    "@oak/oak": "jsr:@oak/oak@^17.1.4",
+    "@std/fmt": "jsr:@std/fmt@^1.0.8",
+    "@std/fs": "jsr:@std/fs@^1.0.17",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/http": "jsr:@std/http@^1.0.17",
+    "@std/path": "jsr:@std/path@^1.1.0",
+    "@std/assert": "jsr:@std/assert@^1.0.13",
+    "@std/cli": "jsr:@std/cli@^1.0.18",
+    "@std/jsonc": "jsr:@std/jsonc@^1.0.2",
+    "@std/net": "jsr:@std/net@1",
+    "@std/testing": "jsr:@std/testing@^1.0.13",
+    "@trpc/client": "npm:@trpc/client@^11.1.4",
+    "@trpc/server": "npm:@trpc/server@^11.1.4",
+    "esbuild": "npm:esbuild@^0.25.5",
+    "fontawesome": "npm:fontawesome@^5.6.3",
+    "fresh": "jsr:@fresh/core@^2.1.4",
+    "gsap": "npm:gsap@^3.13.0",
+    "lighthouse": "npm:lighthouse@^12.6.0",
+    "lightningcss": "npm:lightningcss@^1.30.1",
+    "postcss": "npm:postcss@^8.5.4",
+    "postcss-custom-media": "npm:postcss-custom-media@^11.0.6",
+    "postcss-import": "npm:postcss-import@^16.1.0",
+    "postcss-loader": "npm:postcss-loader@^8.1.1",
+    "postcss-utilities": "npm:postcss-utilities@^0.8.4",
+    "posthtml": "npm:posthtml@^0.16.6",
+    "posthtml-include": "npm:posthtml-include@^2.0.1",
+    "preact": "npm:preact@^10.27.2",
+    "sass": "npm:sass@^1.89.0",
+    "sass-migrator": "npm:sass-migrator@^2.3.1",
+    "sharp": "npm:sharp@^0.33.5",
+    "vite": "npm:vite@^7.1.3",
+    "zod": "npm:zod@^3.25.36"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "unstable": [
+    "kv",
+    "net",
+    "http",
+    "fs",
+    "ffi",
+    "cron",
+    "temporal",
+    "webgpu",
+    "unsafe-proto",
+    "otel",
+    "webgpu"
+  ],
+  "fmt": {
+    "lineWidth": 80,
+    "semiColons": false,
+    "useTabs": false,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "**/_fresh/*",
+      ".deno-kit/**",
+      "!fixtures"
+    ]
+  },
+    "compilerOptions": {
+      "exactOptionalPropertyTypes": true,
+      "lib": [
+        "dom",
+        "dom.asynciterable",
+        "dom.iterable",
+        "esnext",
+        "deno.ns",
+        "deno.window"
+      ],
+       "jsx": "precompile",
+       "jsxImportSource": "preact",
+       "jsxPrecompileSkipElements": [
+          "a",
+          "img",
+          "source",
+          "body",
+          "html",
+          "head",
+          "title",
+          "meta",
+          "script",
+          "link",
+          "style",
+          "base",
+          "noscript",
+          "template"
+        ],
+    "types": [
+      "vite/client"
+    ]
+  },
+    "devDependencies": {
+      "@types/deno": "^2.2.0",
+      "@types/node": "^22.10.5",
+      "eslint": "^8.57.1",
+      "eslint-config-stylelint": "^22.0.0",
+      "postcss": "^8.4.49",
+      "postcss-custom-properties": "^14.0.4",
+      "postcss-import": "^16.1.0",
+      "postcss-modules": "^6.0.1",
+      "postcss-nested": "^6.2.0",
+      "rimraf": "^6.0.1"
+    },
+    "peerDependencies": {
+      "typescript": "^5.6.2"
+    },
+    "dependencies": {
+      "@types/websocket": "^1.0.10",
+      "browserslist": "^4.24.4",
+      "glob": "^11.0.1",
+      "lightningcss": "^1.29.1",
+      "posthtml": "^0.16.6",
+      "posthtml-include": "^2.0.1",
+      "prettier": "^3.4.2",
+      "sass": "^1.83.1",
+      "sharp": "^0.33.5"
+    }
+}

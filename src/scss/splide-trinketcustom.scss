@@ -1,0 +1,429 @@
+
+@use './helpers.scss' as *;
+/* @forward "./splide-default.scss"; */
+// @forward '@splidejs/splide/src/';
+
+//overrides only
+
+.splide-testimg {
+   width: 300px;
+   height: auto;
+   max-width: 500px;
+}
+.splide {
+    &__container {
+      box-sizing: border-box;
+      position: relative;
+    }
+  }
+  
+  .splide {
+    $root: &;
+  
+    &__list {
+      backface-visibility: hidden;
+      display: flex;
+      height: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  
+    &.is-initialized:not( .is-active ) {
+      #{ $root }__list {
+        display: block;
+      }
+    }
+  }
+  // may habe to combine with theme declaration
+  .splide {
+    $root: &;
+  
+    &__pagination {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0;
+      pointer-events: none;
+  
+      li {
+        display: inline-block;
+        line-height: 1;
+        list-style-type: none;
+        margin: 0;
+        pointer-events: auto;
+      }
+    }
+  
+    &:not( .is-overflow ) {
+      #{ $root }__pagination {
+        display: none;
+      }
+    }
+  }
+  .splide {
+    position: relative;
+    /* visibility: hidden; */
+    visibility: visible;
+  
+    &.is-initialized,
+    &.is-rendered {
+      visibility: visible;
+    }
+  }
+  .splide {
+    &__slide {
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      list-style-type: none !important;
+      margin: 0;
+      position: relative;
+  
+      img {
+        vertical-align: bottom;
+      }
+    }
+  }
+  .splide {
+    &__track {
+      overflow: hidden;
+      position: relative;
+      z-index: 0;
+    }
+  }
+    
+// modify arrows
+.splide {
+    $root: &;
+  
+    &__arrow {
+font-size:2rem;
+      background: #fff;
+      border: #ccc;
+      cursor: pointer;
+      padding: 1em;
+      position: absolute;
+      top: 50%;
+      transform: translateY( -50% );
+      z-index: 1;
+      color:$focus;
+      @if $opacity {
+        opacity: $opacity;
+      }
+  
+      @if $button-size {
+        align-items: center;
+        border-radius: $button-border-radius;
+        display: flex;
+        justify-content: center;
+        height: $button-size;
+        width: $button-size;
+      }
+  
+      @if $button-transition {
+        transition: $button-transition;
+      }
+  
+      svg {
+        fill: $fill;
+        height: $size;
+        width: $size;
+  
+        @if $transition {
+          transition: $transition;
+        }
+      }
+  
+      &:hover:not(:disabled) {
+        @if $opacity-hover {
+          opacity: $opacity-hover;
+        }
+  
+        @if $button-background-hover {
+          background: $button-background-hover;
+        }
+  
+        @if $fill-hover {
+          svg {
+            fill: $fill-hover;
+          }
+        }
+      }
+  
+      &:disabled {
+        @if $opacity-disabled {
+          opacity: $opacity-disabled;
+        }
+      }
+      &--prev {
+        left: $left;
+  
+        svg {
+          transform: scaleX( -1 );
+        }
+      }
+  
+      &--next {
+        right: $right;
+      }
+    }
+}
+  
+// splide pagination modifiers  
+.splide {
+    $root: &;
+  
+    &__pagination {
+      bottom: $bottom;
+      left: 0;
+      padding: 0 1em;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+  
+      &__page {
+        background: $dot-background;
+        border: $dot-border;
+        border-radius: $dot-border-radius;
+        display: inline-block;
+        height: $dot-height;
+        margin: $dot-margin;
+        padding: $dot-padding;
+        position: relative;
+        transition: $dot-transition;
+        width: $dot-width;
+  
+        @if $dot-opacity {
+          opacity: $dot-opacity;
+        }
+  
+        &.is-active {
+          background: $dot-background-active;
+          z-index: 1;
+  
+          @if $dot-transform-active {
+            transform: $dot-transform-active;
+          }
+        }
+  
+        &:hover {
+          cursor: pointer;
+  
+          @if $dot-opacity-hover {
+            opacity: $dot-opacity-hover;
+          }
+  
+          @if $dot-background-hover {
+            background: $dot-background-hover;
+          }
+        }
+      }
+    }
+  }
+  
+  .splide {
+    &__progress {
+      &__bar {
+        background: $background;
+        height: $height;
+        width:0;
+      }
+    }
+  }
+  // browser fixes
+  .splide__slide {
+    -webkit-tap-highlight-color: transparent;
+    border: 2px solid purple;
+  }  
+  .splide__toggle {
+    cursor: pointer;
+  }
+
+  // nav for splide
+  .splide {
+    $root: &;
+  
+    &__track--nav {
+      > #{ $root }__list {
+        > #{ $root }__slide {
+          border: $border;
+          cursor: pointer;
+  
+          @if $opacity {
+            opacity: $opacity;
+          }
+  
+          @if $border-radius {
+            border-radius: $border-radius;
+          }
+  
+          &.is-active {
+            border: $border-active;
+  
+            @if $opacity {
+              opacity: $opacity-active;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .splide {
+    $root: &;
+  
+    &__arrows--rtl {
+      #{ $root }__arrow {
+        &--prev {
+          left: auto;
+          right: $arrow-right;
+  
+          svg {
+            transform: scaleX( 1 );
+          }
+        }
+  
+        &--next {
+          left: $arrow-left;
+          right: auto;
+  
+          svg {
+            transform: scaleX( -1 );
+          }
+        }
+      }
+    }
+  }
+
+  .splide {
+    $root: &;
+  
+    &__arrows--ttb {
+      #{ $root }__arrow {
+        left: 50%;
+        transform: translate( -50%, 0 );
+  
+        &--prev {
+          top: $arrow-top;
+  
+          svg {
+            transform: rotateZ( -90deg );
+          }
+        }
+  
+        &--next {
+          bottom: $arrow-bottom;
+          top: auto;
+  
+          svg {
+            transform: rotateZ( 90deg );
+          }
+        }
+      }
+    }
+  
+    &__pagination--ttb {
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      left: $pagination-left;
+      padding: 1em 0;
+      right: $pagination-right;
+      top: 0;
+  
+      #{ $root }__pagination__page {
+        @if $pagination-dot-width {
+          width: $pagination-dot-width;
+        }
+  
+        @if $pagination-dot-height {
+          height: $pagination-dot-height;
+        }
+      }
+    }
+  }
+
+  // core object modifiers
+  .splide {
+    $root: &;
+  
+    &__track--draggable {
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+  }
+  .splide {
+    $root: &;
+  
+    &__track--fade {
+      > #{ $root }__list {
+        > #{ $root }__slide {
+          margin: 0 !important;
+          opacity: 0;
+          z-index: 0;
+  
+          &.is-active {
+            opacity: 1;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+  // spinner
+  .splide {
+    &__spinner {
+      animation: splide-loading 1s infinite linear;
+      border: $spinner-border;
+      border-left-color: transparent;
+      border-radius: 50%;
+      bottom: 0;
+      contain: strict;
+      display: inline-block;
+      height: $spinner-size;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: $spinner-size;
+    }
+  }
+  
+  .splide {
+    &__sr {
+      border: 0;
+      clip: rect( 0 0 0 0 );
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  }
+  
+  .splide {
+    &__toggle {
+      $parent: &;
+  
+    //   &__play {
+    //   }
+  
+      &__pause {
+        display: none;
+      }
+  
+      &.is-active {
+        #{ $parent }__play {
+          display: none;
+        }
+  
+        #{ $parent }__pause {
+          display: inline;
+        }
+      }
+    }
+  }
+  
