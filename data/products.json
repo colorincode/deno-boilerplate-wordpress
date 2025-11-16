@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "This Candle Smells Like...",
+    "price": 29.99,
+    "category": "merch",
+    "image": "../assets/candle.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "thingymajig",
+    "price": 14.99,
+    "category": "prints",
+    "image": "../assets/thingymajig.webp",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "name": "thingymajig",
+    "price": 14.99,
+    "category": "prints",
+    "image": "../assets/thingymajig.webp",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "name": "Knife",
+    "price": 14.99,
+    "category": "drops",
+    "image": "../assets/knife.jpg",
+    "featured": true
+  },
+    {
+    "id": 5,
+    "name": "This Candle Smells Like...",
+    "price": 29.99,
+    "category": "merch",
+    "image": "../assets/candle.jpg",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "name": "thingymajig",
+    "price": 14.99,
+    "category": "prints",
+    "image": "../assets/thingymajig.webp",
+    "featured": true
+  },
+  {
+    "id": 7,
+    "name": "thingymajig",
+    "price": 14.99,
+    "category": "prints",
+    "image": "../assets/thingymajig.webp",
+    "featured": true
+  },
+  {
+    "id": 8,
+    "name": "Knife",
+    "price": 14.99,
+    "category": "drops",
+    "image": "../assets/knife.jpg",
+    "featured": true
+  }
+]

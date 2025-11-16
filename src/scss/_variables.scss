@@ -1,0 +1,62 @@
+
+
+:root {
+    --fluid-min-width: 320;
+    --fluid-max-width: 1140;
+  
+    --fluid-screen: 100vw;
+    --fluid-bp: calc(
+      (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+        (var(--fluid-max-width) - var(--fluid-min-width))
+    );
+  }
+  
+  @media screen and (min-width: 1140px) {
+    :root {
+      --fluid-screen: calc(var(--fluid-max-width) * 1px);
+    }
+  }
+  
+  :root {
+    --f-0-min: 16;
+    --f-0-max: 18;
+    --step-0: calc(
+      ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-1-min: 16;
+    --f-1-max: 22.5;
+    --step-1: calc(
+      ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-2-min: 23.04;
+    --f-2-max: 28.13;
+    --step-2: calc(
+      ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-3-min: 27.65;
+    --f-3-max: 35.16;
+    --step-3: calc(
+      ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-4-min: 33.18;
+    --f-4-max: 46;
+    --step-4: calc(
+      ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+        var(--fluid-bp)
+    );
+  }
+
+  :root {
+    --adjust-height:calc(75% );
+    --adjust-width:calc(75% );
+    --half-column-distance: calc(100vw / 24);
+  }
+  

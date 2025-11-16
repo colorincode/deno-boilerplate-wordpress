@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trinket and Thrift</title>
+<link rel="stylesheet" href="./scss/style.scss" />
+<link rel="stylesheet" href="https://use.typekit.net/wtq2sdp.css">
+
+<link rel="stylesheet" href="./scss/splide-trinketcustom.scss" />
+<script type="module" src="./ts/app.ts"></script>
+</head>
+<body>
+<include src="./partials/header.html"></include>
+<section class="section__outerwrapper">
+    <main>
+
+        <section class="home__categories">
+            <a href="/merch.html" class="category__card" style="--bg:url('../assets/candle.jpg')">
+                <div class="category__overlay">
+                <h2>Limited Merch</h2>
+                <p>Small runs.</p>
+                </div>
+            </a>
+
+            <a href="/drops.html" class="category__card" style="--bg:url('../assets/knife.jpg')">
+                <div class="category__overlay">
+                <h2>Drops</h2>
+                <p>Exclusive releases & finds.</p>
+                </div>
+            </a>
+
+            <a href="/prints.html" class="category__card" style="--bg:url('../assets/3d-print.jpg')">
+                <div class="category__overlay">
+                <h2>3D Prints</h2>
+                <p>Custom pieces.</p>
+                </div>
+            </a>
+        </section>
+
+
+        <section class="splide" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div class="splide__slide__container">
+                        <img src="../assets/3d-print.jpg" class="splide-testimg">
+                        </div>
+                    </li>
+                    <li class="splide__slide"><div class="splide__slide__container"> <img src="../assets/3d-print.jpg" class="splide-testimg"></div></li>
+                    <li class="splide__slide"> <div class="splide__slide__container"> <img src="../assets/3d-print.jpg" class="splide-testimg"></div></li>
+                </ul>
+            </div>
+              <button class="carousel__nav prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel__nav next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </section>
+        <!-- <section class="featured-carousel">
+            <h2 class="carousel-title">Featured Products</h2>
+            <div class="carousel" id="featured-carousel"></div>
+
+            <button class="carousel__nav prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel__nav next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </section> -->
+
+    </main>
+</section>
+    <script src="https://kit.fontawesome.com/72835a3cb5.js" crossorigin="anonymous"></script>
+</body>
+</html>

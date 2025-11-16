@@ -1,0 +1,98 @@
+<style>
+  svg {
+    width: 400px;
+    height: 400px;
+  }
+</style>
+
+<svg viewBox="0 0 300 300">
+  <g id="cube1" transform="translate(150,150)"></g>
+  <g id="cube2" transform="translate(150,150)"></g>
+</svg>
+
+<svg viewBox="0 0 300 300">
+  <g id="cube1" transform="translate(150,150)"></g>
+  <g id="cube2" transform="translate(150,150)"></g>
+</svg>
+
+<script>
+const cube1 = document.getElementById('cube1');
+const cube2 = document.getElementById('cube2');
+
+const size = 70;
+
+// Cube vertices
+const vertices = [
+  [-1,-1,-1],
+  [1,-1,-1],
+  [1,1,-1],
+  [-1,1,-1],
+  [-1,-1,1],
+  [1,-1,1],
+  [1,1,1],
+  [-1,1,1]
+];
+
+// Cube edges
+const edges = [
+  [0,1],[1,2],[2,3],[3,0],
+  [4,5],[5,6],[6,7],[7,4],
+  [0,4],[1,5],[2,6],[3,7]
+];
+
+// Apply 3D rotations
+function rotate(v, angleX, angleY) {
+  const [x0,y0,z0] = v;
+  // rotate around X
+  const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+  const y1 = y0*cosX - z0*sinX;
+  const z1 = y0*sinX + z0*cosX;
+  const x1 = x0;
+  // rotate around Y
+  const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+  const x2 = x1*cosY - z1*sinY;
+  const z2 = x1*sinY + z1*cosY;
+  return [x2, y1, z2];
+}
+
+// Simple perspective projection
+function project(v) {
+  const perspective = 300 / (300 + v[2]*size);
+  return [v[0]*size*perspective, v[1]*size*perspective];
+}
+
+// Draw cube
+function drawCube(g, angleY, color, initialX, initialY) {
+  g.innerHTML = '';
+  const rotated = vertices.map(v => rotate(v, initialX, initialY + angleY));
+  edges.forEach(([i,j]) => {
+    const [x1,y1] = project(rotated[i]);
+    const [x2,y2] = project(rotated[j]);
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    line.setAttribute('stroke', color);
+    line.setAttribute('stroke-width', 2);
+    g.appendChild(line);
+  });
+}
+
+// Initial rotation angles to align corner on top/front
+const initialX = Math.atan(Math.sqrt(2)/1); // ~54.7356° in radians
+const initialY = Math.PI / 4;               // 45° in radians
+
+let angle1 = 0;
+let angle2 = 0;
+
+function animate() {
+  angle1 += 0.01; // clockwise
+  angle2 -= 0.01; // counterclockwise
+  drawCube(cube1, angle1, '#333', initialX, initialY);
+  drawCube(cube2, angle2, '#555', initialX, initialY);
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
